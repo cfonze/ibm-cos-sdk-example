@@ -12,6 +12,7 @@ You\'ll need:
 * A Bucket
 * Service endpoint
 * [Build from source](https://github.com/ibm/ibm-cos-sdk-python/#building-from-source)
+* Clone this repository and run the scripts
 
 Additional documentation can be found [here.](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-python#python-examples)
 
