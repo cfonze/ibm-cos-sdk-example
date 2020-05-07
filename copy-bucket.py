@@ -1,5 +1,5 @@
 import ibm_boto3
-from progressbar import ProgressBar, Percentage, Bar, ETA
+from progressbar import ProgressBar, Percentage, Bar, ETA, RotatingMarker, FileTransferSpeed
 import humanize
 import os
 import os.path
@@ -72,7 +72,8 @@ try:
     print("Source bucket size: {0}".format(humanize.naturalsize(total_size)))
 
     progress, progress_maxval = 0, total_size
-    pbar = ProgressBar(widgets=['Transferring ', Percentage(), Bar(), ' ', ETA(), ],
+    pbar = ProgressBar(widgets=['Transferring: ', Percentage(), ' ', Bar(marker=RotatingMarker()), ' ', ETA(), ' ',
+                                FileTransferSpeed()],
                        maxval=progress_maxval).start()
 
     current_size = 0
@@ -87,7 +88,7 @@ try:
         current_size += file.size
         pbar.update(current_size)
 
-    bar.finish()
+    pbar.finish()
     print("Transfer completed successfully!")
 
 except Exception as e:
