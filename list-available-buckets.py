@@ -3,6 +3,7 @@ import ibm_boto3
 ENDPOINT_URL = 'https://s3.us.cloud-object-storage.appdomain.cloud'
 
 
+
 def get_buckets():
     print("Retrieving list of buckets")
     try:
